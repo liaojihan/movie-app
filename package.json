@@ -21,5 +21,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3"
+  }
 }
