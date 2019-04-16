@@ -1,0 +1,31 @@
+.movie-details {
+    margin-top: 80px;
+}
+
+.movie-details .title {
+    background:linear-gradient(to right, #A84914 , #552B13 50%, #552b13);
+}
+
+.movie-details .title .area {
+    height: 400px;
+    width: 1500px;
+    margin: 0 auto;
+}
+
+.movie-details .container{
+    margin-top: 50px;
+}
+
+.movie-details .container .area {
+    width: 1200px;
+    height: 1200px;
+    margin: 0 auto;
+}
+
+.movie-details .container .area .item-list,
+.movie-details .container .area .plot,
+.movie-details .container .area .office-list {
+    height: 100px;
+    margin-bottom: 100px;
+    background-color: #A84914
+}
