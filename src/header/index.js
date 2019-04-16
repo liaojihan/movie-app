@@ -31,8 +31,8 @@ class Header extends React.Component{
         const nav_list = nav_ul.map( (value, index) => {
              return (
                  <li key={index}>
-                    <a href="javascript:void(0);" className={this.state.isClick === index ? 'active' : ''}
-                       onClick={(e) => this.handleStatus(index, e)}>
+                    <a href="javascript:void(0);" onClick={(e) => this.handleStatus(index, e)}
+                        className={this.props.appStore.refreshCode === index ? 'active' : ''}>
                         {value}
                     </a>
                  </li>

@@ -11,7 +11,8 @@ class Details extends Component{
         super(props);
         this.state = {
             message: null,
-            success: false
+            success: false,
+            isClick: 0 // 是否被点击， 0:被点击, 1:没点击
         }
     }
 
@@ -34,15 +35,23 @@ class Details extends Component{
                 });
     }
 
+    tabClickHandler = index => {
+        this.setState({
+            isClick: parseInt(index)
+        });
+    }
+
     render() {
         const { message, success } = this.state;
         let div_list;
         let actor_list;
-        const items = ['介绍', '演职人员', '奖项', '图集']
+        const items = ['介绍', '演职人员', '奖项', '图集'];
+        const tab = 'tab-title';
         if (success){
             div_list = items.map( (value, index) => {
                 return (
-                    <div key={index} className={index < 2 ? '' : ''}>
+                    <div key={index} className={this.state.isClick === index ? tab + ' active' : tab} 
+                        onClick={ (e) => this.tabClickHandler(index, e)}>
                         {value}
                     </div>
                 );
@@ -52,6 +61,7 @@ class Details extends Component{
                     <li key={index}>
                         <img src={value.avatars.medium} alt=""/>
                         <p>{value.name}</p>
+                        <div></div>
                     </li>
                 );
             });
@@ -66,9 +76,10 @@ class Details extends Component{
                             <img src={ success ? message.images.medium :staticImg } alt=""/>
                         </div>
                         <div className="movie-list">
-                            <h3>{ success ? message.title : ''}</h3>
-                            <p>{ success ? message.aka[message.aka.length - 1] : ''}</p>
-                            <div>{ success ? message.countries : ''}</div>
+                            <h3 className="movie-item">{ success ? message.title : ''}</h3>
+                            <p className="movie-item">{ success ? message.aka[message.aka.length - 1] : ''}</p>
+                            <div className="movie-item">{ success ? message.genres.join(', ') : ''}</div>
+                            <div className="movie-item">{ success ? message.countries : ''}</div>
                         </div>
                     </div>
                 </div>
