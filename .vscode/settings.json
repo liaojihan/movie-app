@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-    "editor.fontSize": 20
-=======
     "editor.fontSize": 18,
     "javascript.implicitProjectConfig.experimentalDecorators": true
->>>>>>> 0d5b400707142b129176a96ffdcfc82538fc01ab
 }

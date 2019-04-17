@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import Header from './header'
 import Container from "./container";
 import Film from "./film"
-import List from "./list"
+import Top from "./top"
 import Details from "./details"
+import Release from "./release"
 import Footer from "./footer";
 import { inject, observer } from 'mobx-react/index'
 
@@ -15,7 +16,10 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            detail_url: 'https://api.douban.com/v2/movie/subject/'
+            detail_url: 'https://api.douban.com/v2/movie/subject/',
+            film_url: 'https://api.douban.com/v2/movie/in_theaters',
+            release_url: 'http://api.douban.com/v2/movie/coming?apikey=0df993c66c0c636e29ecbb5344252a4a',
+            top_url: 'http://api.douban.com/v2/movie/top250?apikey=0df993c66c0c636e29ecbb5344252a4a'
         }
     }
 
@@ -37,13 +41,13 @@ class App extends Component {
                                     return <Film/>;
 
                                 case 2:
-                                    return <List/>;
+                                    return <Release/>;
 
                                 case 3:
-                                    return <Details movie_id={this.props.appStore.id} url={this.state.detail_url}/>;
+                                    return <Top url={this.state.top_url}/>;
 
                                 default:
-                                    return <Container/>
+                                    return <Details movie_id={this.props.appStore.id} url={this.state.detail_url}/>;
 
                             }
                         }

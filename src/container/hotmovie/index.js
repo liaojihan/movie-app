@@ -5,7 +5,8 @@ import staticImg from '../../images/static-picture.png'
 import fetchJsonp from 'fetch-jsonp'
 import { inject, observer } from 'mobx-react/index'
 
-@inject('appStore') @observer
+@inject('appStore')
+@observer
 class HotMovie extends Component{
 
     constructor(props) {
@@ -35,8 +36,14 @@ class HotMovie extends Component{
             });
     }
 
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        }
+    }
+
     movieItem = id => {
-        this.props.appStore.refreshCodeAndId(3, id);
+        this.props.appStore.refreshCodeAndId('hot', id);
     };
 
     render() {

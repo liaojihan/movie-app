@@ -27,7 +27,7 @@ class Header extends React.Component{
     };
 
     render (){
-        const nav_ul = ['首页', '电影', '榜单'];
+        const nav_ul = ['首页', '热映', '上映', '榜单'];
         const nav_list = nav_ul.map( (value, index) => {
              return (
                  <li key={index}>

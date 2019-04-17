@@ -34,8 +34,14 @@ class Top10 extends Component{
             });
     }
 
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        }
+    }
+
     movieItem = id => {
-        this.props.appStore.refreshCodeAndId(3, id);
+        this.props.appStore.refreshCodeAndId('top', id);
     };
 
     render() {

@@ -1,0 +1,65 @@
+.all-movie {
+    margin:160px 0 80px;
+}
+.all-movie .all-content {
+    margin: 0 auto;
+    height: auto;
+    width: 65%;
+}
+
+.all-movie .all-content .movie-title h1{
+    font-size: 25px;
+    color: #A84914;
+}
+
+.all-movie .all-content .movie-container .movie-list li {
+    list-style-type: none;
+    float: left;
+    width: 180px;
+    margin: 25px 0 0 20px;
+}
+
+.all-movie .all-content .movie-container .movie-list .clear,
+.all-movie .all-content .movie-container .page-ul .clear {
+    clear: both;
+}
+
+.all-movie .all-content .movie-container .page-ul{
+    margin: 0 auto;
+}
+
+.all-movie .all-content .movie-container li img {
+    width: 100%;
+    height: 215px;
+}
+
+.all-movie .all-content .movie-container .page-ul {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.all-movie .all-content .movie-container .page-ul ul {
+    display: inline-block;
+}
+
+.all-movie .all-content .movie-container .page-ul li {
+    list-style-type: none;
+    float: left;
+    line-height: 50px;
+    border: 1px solid #d8d8d8;
+    margin: 0 15px 0 0;
+}
+
+.all-movie .all-content .movie-container .page-ul li a.active {
+    background-color: #EF4238;
+    color: #ffffff;
+}
+
+/* .all-movie .all-content .movie-container .page-ul li a {
+    padding: 0 12px;
+} */
+
+.all-movie .all-content .movie-container .page-ul li a:link{
+    text-decoration: none;
+    color: #A84914;
+}

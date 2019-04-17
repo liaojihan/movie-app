@@ -35,6 +35,12 @@ class TodayBox extends Component{
             });
     }
 
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        }
+    }
+
     static handlerBoxValue(number) {
         let box = '';
         if (number > Math.pow(10, 8)) {
@@ -50,7 +56,7 @@ class TodayBox extends Component{
     }
 
     movieItem = id => {
-        this.props.appStore.refreshCodeAndId(3, id);
+        this.props.appStore.refreshCodeAndId('today', id);
     };
 
     render() {

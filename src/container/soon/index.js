@@ -37,8 +37,14 @@ class Soon extends Component{
             });
     }
 
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        }
+    }
+
     movieItem = id => {
-        this.props.appStore.refreshCodeAndId(3, id);
+        this.props.appStore.refreshCodeAndId('soon', id);
     };
 
     render() {

@@ -35,6 +35,12 @@ class Details extends Component{
                 });
     }
 
+    componentWillUnmount() {
+        this.setState = (state, callback) => {
+            return;
+        }
+    }
+
     tabClickHandler = index => {
         this.setState({
             isClick: parseInt(index)
@@ -45,6 +51,7 @@ class Details extends Component{
         const { message, success } = this.state;
         let div_list;
         let actor_list;
+        let director_li;
         const items = ['介绍', '演职人员', '奖项', '图集'];
         const tab = 'tab-title';
         if (success){
@@ -56,12 +63,21 @@ class Details extends Component{
                     </div>
                 );
             });
+
+            director_li = message.directors.map( (value, index) => {
+                return (
+                    <li key={index}>
+                        <img src={value.avatars.medium === null ? staticImg : value.avatars.medium} alt=""></img>
+                        <p>{value.name}</p>
+                    </li>
+                );
+            });
+
             actor_list = message.casts.map( (value, index) => {
                 return (
                     <li key={index}>
-                        <img src={value.avatars.medium} alt=""/>
+                        <img src={value.avatars.medium === null ? staticImg : value.avatars.medium} alt=""/>
                         <p>{value.name}</p>
-                        <div></div>
                     </li>
                 );
             });
@@ -79,7 +95,7 @@ class Details extends Component{
                             <h3 className="movie-item">{ success ? message.title : ''}</h3>
                             <p className="movie-item">{ success ? message.aka[message.aka.length - 1] : ''}</p>
                             <div className="movie-item">{ success ? message.genres.join(', ') : ''}</div>
-                            <div className="movie-item">{ success ? message.countries : ''}</div>
+                            <div className="movie-item">{ success ? message.countries.join(', ') : ''}</div>
                         </div>
                     </div>
                 </div>
@@ -88,13 +104,32 @@ class Details extends Component{
                         <div className="item-list">
                             {div_list}
                         </div>
-                        <div className="plot"></div>
+                        <div className="plot">
+                            <div className="plot-head">
+                                <h3>剧情介绍</h3>
+                            </div>
+                            <div className="plot-content">
+                                <p>{ success ? message.summary : '暂无介绍'}</p>
+                            </div>
+                        </div>
                         <div className="office-list">
-                            <div className="director"></div>
-                            <div className="actor"></div>
-                            <ul className="actor-ul">
-                                {actor_list}
-                            </ul>
+                            <div className="office-head">
+                                <h3>演职人员</h3>
+                            </div>
+                            <div className="office-content">
+                                <div className="office-item">
+                                    <div className="director">导演</div>
+                                    <ul className="director-ul">
+                                        {director_li}
+                                    </ul>
+                                </div>
+                                <div className="office-item">
+                                    <div className="actor">演员</div>
+                                    <ul className="actor-ul">
+                                        {actor_list}
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

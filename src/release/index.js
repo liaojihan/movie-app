@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react/index'
 
 @inject('appStore') 
 @observer
-class Film extends Component {
+class Release extends Component {
     render() {
         return (
             <div>
@@ -13,4 +13,4 @@ class Film extends Component {
     }
 }
 
-export default Film;
+export default Release;

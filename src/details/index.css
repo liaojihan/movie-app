@@ -87,7 +87,42 @@
     margin-bottom: 100px;
 }
 
-.movie-details .container .area .office-list .actor-ul li{
-    list-style-type: none;
+.movie-details .container .area .plot .plot-head,
+.movie-details .container .area .office-list .office-head {
+    border-left: 4px solid #ef4238;;
+}
 
+.movie-details .container .area .plot .plot-head h3,
+.movie-details .container .area .office-list .office-head h3 {
+    line-height: 100%;
+    margin-left: 7px;
+}
+
+.movie-details .container .area .plot .plot-content,
+.movie-details .container .area .office-list .office-content {
+    margin-top: 20px;
+}
+
+.movie-details .container .area .office-list .office-content .office-item {
+    float: left;
+    margin: 0 10px 0
+}
+
+.movie-details .container .area .office-list .office-content .office-item .director-ul,
+.movie-details .container .area .office-list .office-content .office-item .actor-ul {
+    margin-top: 10px
+}
+
+.movie-details .container .area .office-list .office-content .office-item li{
+    list-style-type: none;
+    float: left;
+    width: 120px;
+    margin: 0 10px 0 0;
+    text-align: center;
+    color: #8e8e8e;
+}
+
+.movie-details .container .area .office-list .office-content .office-item img {
+    width: 100%;
+    height: 100%;
 }
