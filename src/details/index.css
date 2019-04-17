@@ -7,25 +7,87 @@
 }
 
 .movie-details .title .area {
-    height: 400px;
-    width: 1500px;
-    margin: 0 auto;
+    height: 350px;
+    width: 65%;
+    margin: 0 auto -20px;
+    position: relative;
+}
+
+.movie-details .title .area .movie-img{
+    width: 205px;
+    height: 295px;
+    float: left;
+    position: relative;
+    top: 90px
+}
+
+.movie-details .title .area .movie-img img {
+    width: 100%;
+    height: 100%;
+    border: 4px solid #ffffff;
+}
+
+
+.movie-details .title .area .movie-list {
+    color: #ffffff;
+    position: relative;
+    left: 50px;
+    top: 90px;
+}
+
+.movie-details .title .area .movie-list .movie-item {
+    margin-bottom: 10px
+}
+
+.movie-details .title .area .movie-list h3 {
+    font-size: 26px
 }
 
 .movie-details .container{
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .movie-details .container .area {
-    width: 1200px;
+    width: 50%;
     height: 1200px;
     margin: 0 auto;
+}
+
+.movie-details .container .area .item-list {
+    border-bottom: 2px solid #eee;
+    line-height: 100%;
+    margin-bottom: 100px;
+    height: 28px;
+}
+
+.movie-details .container .area .item-list .tab-title{
+    cursor: pointer;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: -2px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+    line-height: 100%;
+    border-bottom: 2px solid transparent;
+}
+.movie-details .container .area .item-list .tab-title.active{
+    color: #ef4238;
+    border-bottom: 2px solid #ef4238;
+}
+.movie-details .container .area .item-list .tab-title{
+    cursor: pointer;
+    float: left;
+    margin-right: 20px
 }
 
 .movie-details .container .area .item-list,
 .movie-details .container .area .plot,
 .movie-details .container .area .office-list {
-    height: 100px;
     margin-bottom: 100px;
-    background-color: #A84914
+}
+
+.movie-details .container .area .office-list .actor-ul li{
+    list-style-type: none;
+
 }
