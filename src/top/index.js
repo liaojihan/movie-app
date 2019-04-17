@@ -53,6 +53,13 @@ class Top extends Component{
         this.laodList();
     }
 
+    shouldComponentUpdate(nextProps, nextState){
+        if (nextProps === this.props && nextState === this.state){
+            return false
+        }
+        return true
+    }
+
     pageHandler = value => {
         if (this.state.pageCurrent === value){
             return;
