@@ -16,15 +16,14 @@ class Top extends Component{
             success: false,
             pageCurrent: 1, //当前页码
             pageSize: 12, //本页size
-            pageTotal: 0 //总页数
+            // pageTotal: 0 //总页数
+            pageStart: 0
         }
     }
 
-    componentDidMount() {
+    laodList = () => {
         fetchJsonp(
-            this.props.url + '&start=' + 
-            (this.state.pageCurrent * this.state.pageSize - this.state.pageSize) + 
-            '&count=' + this.state.pageSize, 
+            this.props.url + '&start=' + this.state.pageStart + '&count=' + this.state.pageSize,
             {
                 method: 'get',
                 mode: 'cors',
@@ -34,13 +33,15 @@ class Top extends Component{
             }
         ).then(response => response.json())
             .then(result => {
-                console.log(result);
                 this.setState({
                     list: result,
-                    success: true,
-                    pageTotal: Math.floor( (result.count + this.state.pageSize - 1) / this.state.pageSize )
+                    success: true
                 });
             });
+    }
+
+    componentDidMount() {
+        this.laodList();
     }
 
     componentWillUnmount() {
@@ -48,13 +49,17 @@ class Top extends Component{
             return;
         }
     }
+    componentWillUpdate(){
+        this.laodList();
+    }
 
-    pageCurrentHandler = value => {
+    pageHandler = value => {
         if (this.state.pageCurrent === value){
             return;
         }
         this.setState({
-            pageCurrent: value
+            pageCurrent: value,
+            pageStart: value * this.state.pageSize - this.state.pageSize
         });
     }
 
@@ -82,22 +87,6 @@ class Top extends Component{
                     </li>
                 );
             });
-
-            var items = [];
-            for (let i = 1; i <= this.state.pageTotal; i++){
-                items.push(i);
-            }
-
-            page_list = items.map( (value, index) => {
-                return (
-                    <li key={index}>
-                        <a href="javascript:void(0);" onClick={ (e) => this.pageCurrentHandler(value, e)} 
-                        className={ this.state.pageCurrent === value ? 'active' : 'ban'}>
-                            {value}
-                        </a>
-                    </li>
-                );
-            });
         }else {
             movie_list = (
                 loadingImg
@@ -118,7 +107,26 @@ class Top extends Component{
                         </div>
                         <div className="page-ul">
                             <ul className={this.state.pageTotal >= 1 ? 'active' : 'hide'}>
-                                {page_list}
+                                <li className={ this.state.pageCurrent === 1 ? 'active' : 'ban'}>
+                                    <a href="javascript:void(0);" onClick={ (e) => this.pageHandler(1, e)}>
+                                        1
+                                    </a> 
+                                </li>
+                                <li className={ this.state.pageCurrent === 2 ? 'active' : 'ban'}>
+                                    <a href="javascript:void(0);" onClick={ (e) => this.pageHandler(2, e)}>
+                                        2
+                                    </a>
+                                </li>
+                                <li className={ this.state.pageCurrent === 3 ? 'active' : 'ban'}>
+                                    <a href="javascript:void(0);" onClick={ (e) => this.pageHandler(3, e)}>
+                                        3
+                                    </a>
+                                </li>
+                                <li className={ this.state.pageCurrent === 3 ? 'active' : 'ban'}>
+                                    <a href="javascript:void(0);" onClick={ (e) => this.pageHandler(4, e)}>
+                                        4
+                                    </a>
+                                </li>
                                 <div className="clear"></div>
                             </ul>
                         </div>
